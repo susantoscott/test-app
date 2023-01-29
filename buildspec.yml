@@ -1,0 +1,20 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - npm ci
+  build:
+    commands:
+      - echo Building application...
+      - npm run build
+  post_build:
+    commands:
+      - echo Creating zip file...
+      - zip -r app.zip
+
+artifacts:
+  type: zip
+  files:
+    - app.zip
